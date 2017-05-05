@@ -8,14 +8,15 @@
 
  100.times do |n|
    name = Faker::Internet.user_name
-#   email = Faker::Internet.email
-#   password = "password"
+   email = Faker::Internet.email
+   password = "password"
    User.create(name: name,
-#                email: email,
-#                password: password,
-#                password_confirmation: password,
+                email: email,
+                password: password,
+                password_confirmation: password,
                 )
  end
+
 
 #n = 1
 #while n <= 100
