@@ -12,6 +12,7 @@ class ContactsController < ApplicationController
     if @contact.save
     redirect_to root_path, notice: "お問い合わせありがとうございました！"
     NoticeMailer.sendmail_contact(@contact).deliver
+    NoticeMailer.sendmail_contact_thank(@contact).deliver
     else
     render'new'
     end
