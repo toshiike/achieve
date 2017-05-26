@@ -65,3 +65,5 @@ gem 'cancan'
 gem 'jquery-turbolinks'
 
 gem 'activeresource' 
+
+gem 'her'
