@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
- devise_for :users
+#  devise_for :users
 
   resources :contacts, only: [:new, :create] do
     collection do
@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   end
 
   resources :poems, only: [:index,:show] #この行を追記する
+
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

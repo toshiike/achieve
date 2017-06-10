@@ -56,6 +56,7 @@ gem 'faker'
 
 group :development do
   gem 'letter_opener_web'
+  gem 'dotenv-rails'
 end
 
 gem 'rails_admin'
@@ -64,6 +65,13 @@ gem 'cancan'
 
 gem 'jquery-turbolinks'
 
-gem 'activeresource' 
+gem 'activeresource'
 
 gem 'her'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+
+#image uploader
+gem 'carrierwave'
+gem 'rmagick'
