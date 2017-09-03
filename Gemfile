@@ -75,3 +75,5 @@ gem 'omniauth-twitter'
 #image uploader
 gem 'carrierwave'
 gem 'rmagick'
+
+gem 'pusher'

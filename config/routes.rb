@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 #  devise_for :users
 
@@ -9,11 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
-    collection do
-      post :confirm
+  resources :blogs do
+    resources :comments
+    post :confirm, on: :collection
     end
-  end
 
   root 'top#index'
 
@@ -27,6 +28,14 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  resources :users, only: [:index, :show]
+
+  resources :relationships, only: [:create, :destroy]
+
+  resources :conversations do
+  resources :messages
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
